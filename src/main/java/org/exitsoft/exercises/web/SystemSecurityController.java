@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * 系统安全功能模块控制器
  * 
- * @author vincent
+ * @author elissal
  *
  */
 @Controller
@@ -41,12 +41,12 @@ public class SystemSecurityController {
 	 */
 	@RequestMapping("login")
 	public String login(@RequestParam("username")String username,@RequestParam("password")String password) {
-		if (username.equals("admin") && password.equals("admin")) {
-			return "index";
-		} else {
-			return "login";
+		if(null != username && null != password){
+			if (username.equals("admin") && password.equals("admin")) {
+				return "index";
+			}
 		}
+		return "login";
 	}
-	
 	
 }
